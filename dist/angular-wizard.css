@@ -1,3 +1,50 @@
+.wizard {
+  background: #f6f8fa;
+}
+.wizard h1 {
+  margin-top: 3px;
+}
+.wizard .title {
+  border-bottom: solid 1px lightgray;
+}
+.wizard .title h2,
+.wizard .title h3 {
+  padding: 0px 10px;
+  margin: 10px 0px;
+}
+.wizard .progress {
+  margin-top: 10px;
+}
+.wizard .wizard-sidebar {
+  border-right: solid 1px lightgray;
+  height: 100%;
+}
+.wizard .wizard-sidebar .vbottom {
+  position: relative;
+  bottom: 0;
+  width: 180px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.wizard .wizard-sidebar a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.wizard .wizard-sidebar .current a,
+.wizard .wizard-sidebar .editing a {
+  color: #fff;
+  background: #23527c;
+}
+.wizard .wizard-sidebar .default a {
+  color: gray;
+  background: #E6E6E6;
+}
+.wizard .wizard-sidebar .done a {
+  text-decoration: line-through;
+  color: #23527c;
+  background: #E6E6E6;
+}
 .steps-indicator {
   /* ---- steps quantity ---- */
   right: 0;
