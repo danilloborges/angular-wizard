@@ -19,7 +19,7 @@ angular.module('mgo-angular-wizard').directive('wizard', function() {
         //controller for wizard directive, treat this just like an angular controller
         controller: ['$scope', '$element', '$log', 'WizardHandler', '$q', '$timeout', function ($scope, $element, $log, WizardHandler, $q, $timeout) {
             //setting default step position if none declared.
-            if ($scope.indicatorsPosition == undefined) {
+            if ($scope.indicatorsPosition === undefined) {
                 $scope.indicatorsPosition = 'bottom';
             }
             //this variable allows directive to load without having to pass any step validation
