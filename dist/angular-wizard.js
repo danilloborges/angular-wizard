@@ -18,26 +18,26 @@ angular.module("wizard.html", []).run(["$templateCache", function($templateCache
     "  <div class=\"wizard-title col-md-12\" ng-if=\"::name\">\n" +
     "    <h2>{{name}}</h2>\n" +
     "  </div>\n" +
-    "  <div class=\"wizard-sidebar col-xs-2 col-sm-3 col-md-3 col-lg-2\">\n" +
+    "  <div class=\"wizard-sidebar col-xs-2 col-sm-3 col-md-3\">\n" +
     "    <ul class=\"nav row\" ng-if=\"!hideIndicators\">\n" +
     "      <li ng-class=\"{default: !step.completed && !step.selected, current: step.selected && !step.completed, done: step.completed && !step.selected, editing: step.selected && step.completed}\" ng-repeat=\"step in getEnabledSteps()\">\n" +
     "        <a ng-click=\"goTo(step)\">{{::getStepNumber(step)}}<span class=\"hidden-xs\"> {{step.title || step.wzTitle}}<i class=\"pull-right fa fa-chevron-right\"></i></span></a>\n" +
     "      </li>\n" +
     "    </ul> \n" +
     "  </div>\n" +
-    "  <div class=\"wizard-steps col-xs-10 col-sm-9 col-md-9 col-lg-10\">\n" +
+    "  <div class=\"wizard-steps col-xs-10 col-sm-9 col-md-9\">\n" +
     "    <div class=\"steps\" ng-if=\"indicatorsPosition === 'bottom'\" ng-transclude></div>\n" +
     "  </div>\n" +
     "  <div class=\"wizard-bottom col-md-12\">\n" +
     "    <div class=\"row\">\n" +
-    "      <div class=\"col-xs-10 col-sm-10 col-md-3 col-lg-2\">\n" +
+    "      <div class=\"col-xs-10 col-sm-10 col-md-3\">\n" +
     "        <div class=\"progress\">\n" +
     "          <div class=\"progress-bar progress-bar-info progress-bar-striped\" role=\"progressbar\" aria-valuenow=\"{{currentStepNumber()-1}}\" aria-valuemin=\"0\" aria-valuemax=\"{{getEnabledSteps().length}}\" style=\"width: {{ (currentStepNumber()-1) * 100 / getEnabledSteps().length }}%;\">\n" +
     "            <span class=\"\"> {{ (currentStepNumber()-1)*100/getEnabledSteps().length | currency:\"\"}}%</span>\n" +
     "          </div>\n" +
     "        </div>      \n" +
     "      </div>\n" +
-    "      <div class=\"hidden-xs hidden-sm col-md-8 col-lg-9\"></div>\n" +
+    "      <div class=\"hidden-xs hidden-sm col-md-8\"></div>\n" +
     "      <div class=\"col-xs-1\">\n" +
     "        <div class=\"pull-right\">  \n" +
     "            <span class=\"fa-stack fa-2x\">\n" +
