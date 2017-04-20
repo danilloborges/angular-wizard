@@ -3,32 +3,32 @@
 @wz-color-done:    #339933;
 @wz-color-editing: #FF0000;
 
-.wizard {    
-    background: #f6f8fa;  
+.wizard {
+    background: #FEFEFE;      
+   
     h1{
         margin-top: 3px;
     }  
-    .title{
+    .wizard-title{
         border-bottom: solid 1px lightgray; 
         h2, h3{
           padding: 0px 10px;
           margin: 10px 0px;
         }
     }
-    .progress{
-        margin-top: 10px;
+    .wizard-steps{
+       background: #f6f8fa;
+       padding-bottom: 10px;
+       border-left:   1px solid lightgray;
+    }
+    .wizard-bottom{
+        border-top: solid 1px lightgray;         
+    }
+    .progress{        
+        margin: 10px 10px;
     }
     .wizard-sidebar{
-        border-right: solid 1px lightgray;
-        height: 100%;
-        .vbottom  {
-            position: relative;
-            bottom: 0;
-            width: 180px;
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-
+        border-right: solid 1px lightgray;        
         a {
             color: #fff;
             text-decoration: none;

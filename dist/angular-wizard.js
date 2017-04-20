@@ -1,10 +1,10 @@
 /**
  * Easy to use Wizard library for Angular JS
- * @version v0.10.1 - 2017-04-02 * @link https://github.com/mgonto/angular-wizard
+ * @version v0.10.0 - 2017-04-03 * @link https://github.com/mgonto/angular-wizard
  * @author Martin Gontovnikas <martin@gon.to>
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
-angular.module('templates-angularwizard', ['step.html', 'teste.html', 'wizard.html']);
+angular.module('templates-angularwizard', ['step.html', 'wizard.html']);
 
 angular.module("step.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("step.html",
@@ -12,74 +12,41 @@ angular.module("step.html", []).run(["$templateCache", function($templateCache) 
     "</section>");
 }]);
 
-angular.module("teste.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("teste.html",
-    "<div  class=\"modal fade wizard\">\n" +
-    "                <div class=\"modal-dialog wizard-dialog\">\n" +
-    "                    <div class=\"modal-content wizard-content\">\n" +
-    "                        <div class=\"modal-header wizard-header\">\n" +
-    "                            <button type=\"button\" class=\"close wizard-close\" aria-hidden=\"true\">&times;</button>\n" +
-    "                            <h3 class=\"modal-title wizard-title\"></h3>\n" +
-    "                            <span class=\"wizard-subtitle\"></span>\n" +
-    "                        </div>\n" +
-    "                        <div class=\"modal-body wizard-body\">\n" +
-    "                            <div class=\"pull-left wizard-steps\">\n" +
-    "                                <div class=\"wizard-nav-container\">\n" +
-    "                                    <ul class=\"nav wizard-nav-list\">\n" +
-    "                                    </ul>\n" +
-    "                                </div>\n" +
-    "                                <div class=\"wizard-progress-container\">\n" +
-    "                                    <div class=\"progress progress-striped\">\n" +
-    "                                        <div class=\"progress-bar\" style=\"width: 0%;\"></div>\n" +
-    "                                    </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                            <form>\n" +
-    "                                <div class=\"wizard-cards\">\n" +
-    "                                    <div class=\"wizard-card-container\">\n" +
-    "                                    </div>\n" +
-    "                                    <div class=\"wizard-footer\">\n" +
-    "                                        <div class=\"wizard-buttons-container\">\n" +
-    "                                            <button class=\"btn wizard-cancel wizard-close\" type=\"button\">Cancel</button>\n" +
-    "                                            <div class=\"btn-group-single pull-right\">\n" +
-    "                                                <button class=\"btn wizard-back\" type=\"button\">Back</button>\n" +
-    "                                                <button class=\"btn btn-primary wizard-next\" type=\"button\">Next</button>\n" +
-    "                                            </div>\n" +
-    "                                        </div>\n" +
-    "                                    </div>\n" +
-    "                                </div>\n" +
-    "                            </form>\n" +
-    "                        </div>\n" +
-    "                    \n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "            </div>");
-}]);
-
 angular.module("wizard.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("wizard.html",
     "<div class=\"row wizard\">\n" +
-    "  <div class=\"title col-md-12\" ng-if=\"::name\">\n" +
+    "  <div class=\"wizard-title col-md-12\" ng-if=\"::name\">\n" +
     "    <h2>{{name}}</h2>\n" +
     "  </div>\n" +
-    "  <div class=\"wizard-sidebar col-xs-2 col-sm-3 col-md-3 col-lg-2\">\n" +
+    "  <div class=\"wizard-sidebar col-xs-2 col-sm-3 col-md-3\">\n" +
     "    <ul class=\"nav row\" ng-if=\"!hideIndicators\">\n" +
     "      <li ng-class=\"{default: !step.completed && !step.selected, current: step.selected && !step.completed, done: step.completed && !step.selected, editing: step.selected && step.completed}\" ng-repeat=\"step in getEnabledSteps()\">\n" +
     "        <a ng-click=\"goTo(step)\">{{::getStepNumber(step)}}<span class=\"hidden-xs\"> {{step.title || step.wzTitle}}<i class=\"pull-right fa fa-chevron-right\"></i></span></a>\n" +
     "      </li>\n" +
-    "    </ul>     \n" +
-    "    <div class=\"vbottom\">\n" +
-    "      <div class=\"row\">\n" +
+    "    </ul> \n" +
+    "  </div>\n" +
+    "  <div class=\"wizard-steps col-xs-10 col-sm-9 col-md-9\">\n" +
+    "    <div class=\"steps\" ng-if=\"indicatorsPosition === 'bottom'\" ng-transclude></div>\n" +
+    "  </div>\n" +
+    "  <div class=\"wizard-bottom col-md-12\">\n" +
+    "    <div class=\"row\">\n" +
+    "      <div class=\"col-xs-10 col-sm-10 col-md-3\">\n" +
     "        <div class=\"progress\">\n" +
     "          <div class=\"progress-bar progress-bar-info progress-bar-striped\" role=\"progressbar\" aria-valuenow=\"{{currentStepNumber()-1}}\" aria-valuemin=\"0\" aria-valuemax=\"{{getEnabledSteps().length}}\" style=\"width: {{ (currentStepNumber()-1) * 100 / getEnabledSteps().length }}%;\">\n" +
     "            <span class=\"\"> {{ (currentStepNumber()-1)*100/getEnabledSteps().length | currency:\"\"}}%</span>\n" +
     "          </div>\n" +
     "        </div>      \n" +
     "      </div>\n" +
+    "      <div class=\"hidden-xs hidden-sm col-md-8\"></div>\n" +
+    "      <div class=\"col-xs-1\">\n" +
+    "        <div class=\"pull-right\">  \n" +
+    "            <span class=\"fa-stack fa-2x\">\n" +
+    "              <i class=\"fa fa-question fa-stack-1x text-info\"></i>\n" +
+    "              <i class=\"fa fa-circle-o fa-stack-2x text-info\"></i>\n" +
+    "            </span>        \n" +
+    "        </div>\n" +
+    "      </div>\n" +
     "    </div>\n" +
-    "  </div>\n" +
-    "  <div class=\"wizard-steps col-xs-10 col-sm-9 col-md-9 col-lg-10\">\n" +
-    "    <div class=\"steps\" ng-if=\"indicatorsPosition === 'bottom'\" ng-transclude></div>\n" +
     "  </div>\n" +
     "    <!-- \n" +
     "      <div class=\"steps\" ng-if=\"indicatorsPosition === 'top'\" ng-transclude></div> \n" +
@@ -142,7 +109,7 @@ angular.module('mgo-angular-wizard').directive('wizard', function() {
         //controller for wizard directive, treat this just like an angular controller
         controller: ['$scope', '$element', '$log', 'WizardHandler', '$q', '$timeout', function ($scope, $element, $log, WizardHandler, $q, $timeout) {
             //setting default step position if none declared.
-            if ($scope.indicatorsPosition === undefined) {
+            if ($scope.indicatorsPosition == undefined) {
                 $scope.indicatorsPosition = 'bottom';
             }
             //this variable allows directive to load without having to pass any step validation
