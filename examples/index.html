@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <wizard name="Name wizard" on-finish="finishedWizard()">
+                <wizard name="Name wizard" subtitle="{{subtitle}}"on-finish="finishedWizard()">
                     <wz-step wz-title="Starting">
                         <h1>This is the first step</h1>
                         <p>Here you can use whatever you want. You can use other directives, binding, etc.</p>
@@ -37,9 +37,13 @@
                         <input type="submit" wz-next value="Finish now" />
                     </wz-step>
                 </wizard>
-
             </div>
         </div>
+         <div class="row">
+            <div class="col-md-12">
+                <button ng-click="changeSubtitle()">Change Subtilte</button>
+            </div>
+         </div>
     </div>
 </body>
 

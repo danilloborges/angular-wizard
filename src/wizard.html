@@ -1,7 +1,18 @@
 <div class="row wizard">
-  <div class="wizard-title col-md-12" ng-if="::name">
-    <h2>{{name}}</h2>
-  </div>
+  <div class="col-md-12 wizard-header">
+    <div class="row" ng-if="name || subtitle">
+      <div class="col-md-6">
+        <div class="wizard-title">
+          <h2>{{name}}</h2>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="wizard-subtitle" >
+          <h3>{{subtitle}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>  
   <div class="wizard-sidebar col-xs-2 col-sm-3 col-md-3">
     <ul class="nav row" ng-if="!hideIndicators">
       <li ng-class="{default: !step.completed && !step.selected, current: step.selected && !step.completed, done: step.completed && !step.selected, editing: step.selected && step.completed}" ng-repeat="step in getEnabledSteps()">

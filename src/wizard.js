@@ -10,6 +10,7 @@ angular.module('mgo-angular-wizard').directive('wizard', function() {
             hideIndicators: '=',
             editMode: '=',
             name: '@',
+            subtitle: '@',
             indicatorsPosition: '@?'
         },
         templateUrl: function(element, attributes) {

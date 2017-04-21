@@ -1,10 +1,11 @@
 .wizard {
-  background: #FEFEFE;
+  background: #E6E6E6;
+  border: solid 1px lightgray;
 }
 .wizard h1 {
   margin-top: 3px;
 }
-.wizard .wizard-title {
+.wizard .wizard-header {
   border-bottom: solid 1px lightgray;
 }
 .wizard .wizard-title h2,
