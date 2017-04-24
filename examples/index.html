@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../dist/angular-wizard.css">
 
     <script type="text/javascript" src="index.js"></script>
+
+    <script src="https://use.fontawesome.com/e4d342a188.js"></script>
 </head>
 
 <body>
@@ -21,7 +23,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <wizard name="Name wizard" subtitle="{{subtitle}}"on-finish="finishedWizard()">
+                <wizard name="Name wizard" subtitle="{{subtitle}}" resume="Meu resumo" on-finish="finishedWizard()">
                     <wz-step wz-title="Starting">
                         <h1>This is the first step</h1>
                         <p>Here you can use whatever you want. You can use other directives, binding, etc.</p>

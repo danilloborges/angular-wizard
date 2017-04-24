@@ -11,7 +11,8 @@ angular.module('mgo-angular-wizard').directive('wizard', function() {
             editMode: '=',
             name: '@',
             subtitle: '@',
-            indicatorsPosition: '@?'
+            indicatorsPosition: '@?',
+            resume: '@'
         },
         templateUrl: function(element, attributes) {
             return attributes.template || "wizard.html";

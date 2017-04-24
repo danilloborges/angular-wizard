@@ -48,7 +48,11 @@ angular.module("wizard.html", []).run(["$templateCache", function($templateCache
     "          </div>\n" +
     "        </div>      \n" +
     "      </div>\n" +
-    "      <div class=\"hidden-xs hidden-sm col-md-8\"></div>\n" +
+    "      <div class=\"hidden-xs hidden-sm col-md-8 \">\n" +
+    "        <div class=\"resume\">\n" +
+    "          <h3>{{resume}}</h3>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
     "      <div class=\"col-xs-1\">\n" +
     "        <div class=\"pull-right\">  \n" +
     "            <span class=\"fa-stack fa-2x\">\n" +
@@ -111,7 +115,8 @@ angular.module('mgo-angular-wizard').directive('wizard', function() {
             editMode: '=',
             name: '@',
             subtitle: '@',
-            indicatorsPosition: '@?'
+            indicatorsPosition: '@?',
+            resume: '@'
         },
         templateUrl: function(element, attributes) {
             return attributes.template || "wizard.html";

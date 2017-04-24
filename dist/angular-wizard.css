@@ -21,6 +21,9 @@
 .wizard .wizard-bottom {
   border-top: solid 1px lightgray;
 }
+.wizard .wizard-bottom .resume {
+  text-align: right;
+}
 .wizard .progress {
   margin: 10px 10px;
 }
